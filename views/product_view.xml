@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record id="product_product_inherit_view_form" model="ir.ui.view">
+		<field name="name">product.product.inherit.view.form</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_normal_form_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='barcode']" position="after">
+                    <field name="is_book" widget="boolean_toggle"/>
+                    <field name="isbn" attrs="{'invisible':[('is_book','=',False)],'required':[('is_book','=',True)]}"/>
+                    <field name="author_id" 
+                    	options="{'no_create':True, 'no_open': True}" 
+                    	domain="[('category_id','in',[author_category_id])]" 
+                    	attrs="{'invisible':[('is_book','=',False)],'required':[('is_book','=',True)]}"/>
+                    <field name="author_category_id" invisible="1"/>
+                    <field name="rent" attrs="{'invisible':[('is_book','=',False)],'required':[('is_book','=',True)]}"/>
+            </xpath>
+		</field>
+	</record>
+</odoo>

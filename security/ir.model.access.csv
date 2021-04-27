@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rent_order,access_rent_order,library.model_rent_order,base.group_user,1,1,1,1
+access_rent_order_line,access_rent_order_line,library.model_rent_order_line,base.group_user,1,1,1,1
+access_rent_order_line_user,access_rent_order_line_user,library.model_rent_order_line,library.group_book_user,1,1,1,1
+access_rent_order_line_administrator,access_rent_order_line_administrator,library.model_rent_order_line,library.group_book_administrator,1,1,1,1

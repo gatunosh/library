@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record id="category_author" model="res.partner.category">
+		<field name="name">Autor</field>
+	</record>
+</odoo>

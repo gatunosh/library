@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	
+	<record id="action_open_rent_order" model="ir.actions.act_window">
+		<field name="name">Historico de alquiler</field>
+		<field name="res_model">rent.order</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<record id="rent_order_view_form" model="ir.ui.view">
+		<field name="name">rent.order.view.form</field>
+		<field name="model">rent.order</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<field name="product_image" widget="image" class="oe_avatar" 
+					options="{'size':['',128]}" />
+					<div class="oe_title">
+						<div class="o_row">
+							<h1 style="float:left; display:flex;">
+								<field name="product_id" />
+							</h1>
+							<field name="average_book_grade" widget="percentpie" string=" " 
+									style="padding-left:10px"/>
+						</div>
+					</div>
+					<group style="margin-top:-10px;">
+						<group>
+							<field name="last_rent_date" />
+						</group>
+					</group>
+					<notebook>
+						<page string="Historico">
+							<field name="rent_order_line_ids">
+								<tree editable="bottom">
+									<field name="user_rent_id" />
+									<field name="initial_rent_date" />
+									<field name="final_rent_date" />
+									<field name="book_grade" />
+									<field name="review" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="view_rent_order_tree" model="ir.ui.view" >
+		<field name="name">view.rent.order.tree</field>
+		<field name="model">rent.order</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="product_id" />
+				<field name="average_book_grade" />
+			</tree>
+		</field>
+	</record>
+
+	<menuitem id="menu_rent_order"
+                action="action_open_rent_order"
+                parent="sale.sale_order_menu"
+                sequence="5" groups="library.group_book_administrator"/>
+</odoo>
