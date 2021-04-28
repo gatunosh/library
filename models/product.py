@@ -40,7 +40,7 @@ class ProductProduct(models.Model):
     author_category_id = fields.Many2one(
         comodel_name = 'res.partner.category',
         string = u'Categoria autor',
-        default = lambda self: self.env.ref('library.category_author'),
+        #default = lambda self: self.env.ref('library.category_author'),
         help = u'Categoria autor de los usuarios'
     )
     rent = fields.Selection(
@@ -52,7 +52,4 @@ class ProductProduct(models.Model):
         help = u'Si esta disponible de alquilar o esta alquilado',
         default = 'available'
     )
-    
-    
-    
     
